@@ -11,14 +11,14 @@ import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
-
-import java.time.LocalTime;
 
 @Getter
 @Setter
 @Entity
+@ToString
 @Table(name = "routestation")
 public class RouteStation implements HasId<Integer> {
     @Id
@@ -26,27 +26,21 @@ public class RouteStation implements HasId<Integer> {
     private Integer id;
 
     @NotNull
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "route_id", nullable = false)
     private Route route;
 
     @NotNull
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne
     @OnDelete(action = OnDeleteAction.CASCADE)
-    @JoinColumn(name = "station_id", nullable = false)
-    private Station station;
+    @JoinColumn(name = "lineElement", nullable = false)
+    private TrainLineElement lineElement;
 
     @Column(name = "station_index")
     private Integer stationIndex;
 
-    @Column(name = "distance")
-    private Integer distance;
-
-    @Column(name = "duration")
-    private LocalTime duration;
-
     @Column(name = "departure_duration")
-    private LocalTime departureDuration;
+    private Integer departureDuration;
 
 }

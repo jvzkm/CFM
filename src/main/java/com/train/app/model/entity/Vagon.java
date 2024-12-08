@@ -20,7 +20,7 @@ public class Vagon implements HasId<Integer> {
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "vagon_class")
     private VagonClass vagonClass;
 

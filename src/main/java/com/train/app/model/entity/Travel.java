@@ -1,5 +1,6 @@
 package com.train.app.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.train.app.model.marker.HasId;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -14,7 +15,7 @@ import lombok.Setter;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
-import java.time.Instant;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -26,16 +27,20 @@ public class Travel implements HasId<Integer> {
     private Integer id;
 
     @NotNull
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "route_id", nullable = false)
     private Route route;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "travel_train_loaded_vagons_id")
     private TrainLoadedVagon travelTrainLoadedVagons;
 
     @Column(name = "start_date_time")
-    private Instant startDateTime;
+    private LocalDateTime startDateTime;
 
+    @JsonIgnore
+    public @NotNull Integer getRouteId() {
+        return route.getId();
+    }
 }
