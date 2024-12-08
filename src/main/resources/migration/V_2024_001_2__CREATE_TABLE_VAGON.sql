@@ -11,4 +11,11 @@ CREATE TABLE Vagon (
    FOREIGN KEY (vagon_class) REFERENCES Vagon_Class(id)
 );
 
+CREATE TABLE TrainLoadedVagons (
+   id INT NOT NULL PRIMARY KEY,
+   train_id INT NULL,
+   FOREIGN KEY (train_id) REFERENCES Train(id)
+);
+
+
 
