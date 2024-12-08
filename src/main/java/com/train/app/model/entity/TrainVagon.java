@@ -1,0 +1,34 @@
+package com.train.app.model.entity;
+
+import com.train.app.model.marker.HasId;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+@Entity
+@Table(name = "trainvagon")
+public class TrainVagon implements HasId<Integer> {
+    @Id
+    @Column(name = "id", nullable = false)
+    private Integer id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "train_loaded_vagons_id")
+    private TrainLoadedVagon trainLoadedVagons;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "vagon_id")
+    private Vagon vagon;
+
+    @Column(name = "vagon_index")
+    private Integer vagonIndex;
+
+}
