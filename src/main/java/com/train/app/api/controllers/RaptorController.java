@@ -1,4 +1,4 @@
-package com.train.app.api;
+package com.train.app.api.controllers;
 
 import com.train.app.model.dto.TravelResult;
 import com.train.app.service.RaptorService;

@@ -3,6 +3,7 @@ package com.train.app.dao.repository;
 import com.train.app.model.dto.TrainLineInfo;
 import com.train.app.model.entity.Route;
 import com.train.app.model.entity.RouteStation;
+import com.train.app.model.entity.Station;
 import com.train.app.model.entity.TrainLine;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -14,6 +15,9 @@ import java.util.Optional;
 
 @Repository
 public interface RouteStationRepository extends JpaRepository<RouteStation, Integer> {
+
+    @Query("select r.lineElement.station from RouteStation r where r.stationIndex between ?1 and ?2 and r.route.id = ?3")
+    List<Station> getStationsInBetween(Integer stationIndexStart, Integer stationIndexEnd, Integer routeId);
 
     @Query("SELECT r FROM RouteStation r WHERE r.lineElement.station.id = :station AND r.route = :route")
     Optional<RouteStation> findByStationAndRoute(@Param("station") Integer station, @Param("route") Route route);

@@ -1,0 +1,119 @@
+<body>
+<style>
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+
+        font-family: 'Montserrat', sans-serif; /* Apply Montserrat font */
+        table-layout: fixed; /* Ensures equal column width */
+        width: 100%; /* Optional: Adjust width of the table */
+    }
+    .header{
+        background-color: red;
+        height:30%;
+        COLOR:WHITE;
+        font-size: 24px; /* Increase font size */
+        font-weight: bold; /* Make text bold */
+    }
+    th, td {
+        border: 1px solid black;
+        width: 33%; /* Equal column width */
+
+    }
+    .dataLabel{
+        font-weight: bold; /* Make text bold */
+    }
+    .priceLabel{
+        background-color: red;
+        COLOR:WHITE;
+        font-size: 18px; /* Increase font size */
+        font-weight: bold; /* Make text bold */
+    }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+<table>
+    <tr class="header">
+        <td>
+            CFM
+        </td>
+        <td colspan="2">
+            MOLDOVA
+        </td>
+        <td WIDTH=30%>
+            {{class}}
+        </td>
+    </tr>
+    <tr class="middle">
+        <td>
+            Ticket ID
+        </td>
+        <td WIDTH=20%>
+            Train ID
+        </td>
+        <td rowspan="6">
+            <img src="src/main/java/com/app/train/model/trash/EmailCompartiment/ticketTemplates/ticketsPDF/icon.png" style="width: 100%; height: auto;"
+                 alt="Icon">
+        </td>
+        <td  class="dataLabel">
+            {{st_stat}}
+        </td>
+    </tr>
+    <tr class="middle">
+        <td class="dataLabel">
+            {{ticket_id}}
+        </td>
+        <td class="dataLabel">
+            {{train_id}}
+        </td>
+
+        <td>
+            {{st_date}}
+        </td>
+    </tr>
+    <tr class="middle">
+        <td>
+            Vagon
+        </td>
+        <td>
+            Seat
+        </td>
+
+        <td  class="dataLabel">
+            {{end_stat}}
+        </td>
+    </tr>
+    <tr class="middle">
+        <td  class="dataLabel">
+            {{vagon}}
+        </td>
+        <td  class="dataLabel">
+            {{seat}}
+        </td>
+
+        <td>
+            {{end_date}}
+        </td>
+    </tr>
+    <tr class="middle">
+        <td>
+            Passager Type
+        </td>
+        <td>
+            Valid on
+        </td>
+
+        <td rowspan="2" class="priceLabel">
+            {{price}} {{val}}
+        </td>
+    </tr>
+    <tr class="middle">
+        <td  class="dataLabel">
+            {{pas_type}}
+        </td>
+        <td  class="dataLabel">
+            {{valid}}
+        </td>
+    </tr>
+
+</table>
+</body>

@@ -32,8 +32,15 @@
 		<rest-assured.version>5.4.0</rest-assured.version>
 		<mapstruct.version>1.5.0.Final</mapstruct.version>
 		<jjwt-api.version>0.11.5</jjwt-api.version>
+		<html2pdf.version>4.0.2</html2pdf.version>
 	</properties>
 	<dependencies>
+
+		<dependency>
+			<groupId>com.itextpdf</groupId>
+			<artifactId>html2pdf</artifactId>
+			<version>${html2pdf.version}</version>
+		</dependency>
 
 		<dependency>
 			<groupId>org.springdoc</groupId>
