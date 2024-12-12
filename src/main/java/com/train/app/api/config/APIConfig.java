@@ -1,4 +1,4 @@
-package com.train.app.config;
+package com.train.app.api.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
