@@ -1,5 +1,6 @@
-insert into route (id,route_name)
-values
+#MOLDOVA 1 - 50
+INSERT INTO station
+VALUES
     (1,'Ocnita - Balti'),
     (2,'Balti - Ocnita'),
     (3,'Balti - Ribnita'),
@@ -18,3 +19,4 @@ values
     (16,'Comrat - Giugiulesti'),
     (17,'Etulia - Comrat'),
     (18,'Comrat - Etulia');
+
