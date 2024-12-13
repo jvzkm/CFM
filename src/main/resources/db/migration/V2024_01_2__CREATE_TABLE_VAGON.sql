@@ -17,5 +17,13 @@ CREATE TABLE TrainLoadedVagons (
    FOREIGN KEY (train_id) REFERENCES Train(id)
 );
 
+CREATE TABLE TrainVagon(
+    train_loaded_vagons_id INT,
+    vagon_id INT,
+    vagon_index INT,
+
+    FOREIGN KEY (train_loaded_vagons_id) REFERENCES TrainLoadedVagons(id),
+    FOREIGN KEY (vagon_id) REFERENCES Vagon(id)
+);
 
 

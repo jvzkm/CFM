@@ -33,10 +33,7 @@ public interface RouteStationRepository extends JpaRepository<RouteStation, Inte
     @Query("select r.stationIndex from RouteStation r where r.route.id = ?1 and r.lineElement.station.id = ?2")
     Optional<Integer> getIndexByStation(Integer id, Integer id1);
 
-    @Query("SELECT DISTINCT r.lineElement.trainLine FROM RouteStation r WHERE r.stationIndex >= :start and r.stationIndex <=:end and r.route = :route")
-    List<TrainLine> getTrainLinesInBetweenStations(@Param("start") Integer startIndex, @Param("end") Integer endIndex, @Param("route") Route route);
-
-    @Query("SELECT new com.app.train.model.entity.TrainLineInfo(r.lineElement.trainLine, COUNT(r)) " +
+    @Query("SELECT new com.train.app.model.dto.TrainLineInfo(r.lineElement.trainLine, COUNT(r)) " +
             "FROM RouteStation r " +
             "WHERE r.stationIndex >= :start AND r.stationIndex <= :end AND r.route = :route " +
             "GROUP BY r.lineElement.trainLine")

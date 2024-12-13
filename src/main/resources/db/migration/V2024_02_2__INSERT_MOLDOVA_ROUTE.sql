@@ -1,5 +1,5 @@
 #MOLDOVA 1 - 50
-INSERT INTO station
+INSERT INTO route
 VALUES
     (1,'Ocnita - Balti'),
     (2,'Balti - Ocnita'),
